@@ -1,0 +1,992 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.11
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jun 16, 2016 at 07:46 PM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `labformatics`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+`id` int(5) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'FTI5');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_arsip`
+--
+
+CREATE TABLE IF NOT EXISTS `data_arsip` (
+`id` int(20) NOT NULL,
+  `Bulan` varchar(25) NOT NULL,
+  `Tahun` varchar(10) NOT NULL,
+  `nama_file` varchar(80) NOT NULL,
+  `nama_uploader` varchar(50) NOT NULL,
+  `kategori` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_dosen`
+--
+
+CREATE TABLE IF NOT EXISTS `data_dosen` (
+`id` int(5) NOT NULL,
+  `nama_dosen` varchar(50) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_dosen`
+--
+
+INSERT INTO `data_dosen` (`id`, `nama_dosen`) VALUES
+(1, 'Aan Kardiana, Drs, M.Si'),
+(2, 'Ahmad Sabiq, S.Kom, M.Kom'),
+(3, 'Chandra Prasetyo Utomo, S.Kom., M.Sc.'),
+(4, 'Elan Suherlan, SSi, MSi.'),
+(5, 'Heri Yugaswara, S.Si, M.T.'),
+(6, 'Herika Hayurani, S.Kom, M.Kom'),
+(7, 'Indah Dwi Lestantri, S.Kom., M.Si'),
+(8, 'Mubarik Ahmad, M.Kom'),
+(9, 'Nova Eka Diana, S.Kom, M.Eng'),
+(10, 'Nurmaya, S.Kom., M. Eng'),
+(11, 'Pinkie Anggia, M.Kom'),
+(12, 'Puspa Setia Pratiwi, S.Kom., M.SME'),
+(13, 'Dr. Sri C. Haryanti, S.T, M.T'),
+(14, 'Sri Puji Utami, ST, MT'),
+(15, 'Suhaeri, Drs., MT.'),
+(16, 'Dr. Ummi Azizah Rachmawati, S.Kom, M.Kom'),
+(17, 'Dr. Vitri Tundjungsari, S.T., M.Sc. ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_inventaris_jk`
+--
+
+CREATE TABLE IF NOT EXISTS `data_inventaris_jk` (
+`id` int(11) NOT NULL,
+  `nama_barang` varchar(80) NOT NULL,
+  `tanggal` date NOT NULL,
+  `merk` varchar(70) NOT NULL,
+  `jumlah` int(5) NOT NULL,
+  `keterangan` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_inventaris_jk_total`
+--
+
+CREATE TABLE IF NOT EXISTS `data_inventaris_jk_total` (
+`id` int(11) NOT NULL,
+  `nama_barang` varchar(80) NOT NULL,
+  `tanggal` date NOT NULL,
+  `jumlah` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_inventaris_kc`
+--
+
+CREATE TABLE IF NOT EXISTS `data_inventaris_kc` (
+`id` int(11) NOT NULL,
+  `nama_barang` varchar(80) NOT NULL,
+  `tanggal` date NOT NULL,
+  `merk` varchar(70) NOT NULL,
+  `jumlah` int(5) NOT NULL,
+  `keterangan` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_inventaris_kc_total`
+--
+
+CREATE TABLE IF NOT EXISTS `data_inventaris_kc_total` (
+`id` int(11) NOT NULL,
+  `nama_barang` varchar(80) NOT NULL,
+  `tanggal` date NOT NULL,
+  `jumlah` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_inventaris_mdi`
+--
+
+CREATE TABLE IF NOT EXISTS `data_inventaris_mdi` (
+`id` int(11) NOT NULL,
+  `nama_barang` varchar(80) NOT NULL,
+  `tanggal` date NOT NULL,
+  `merk` varchar(70) NOT NULL,
+  `jumlah` int(5) NOT NULL,
+  `keterangan` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_inventaris_mdi_total`
+--
+
+CREATE TABLE IF NOT EXISTS `data_inventaris_mdi_total` (
+`id` int(11) NOT NULL,
+  `nama_barang` varchar(80) NOT NULL,
+  `tanggal` date NOT NULL,
+  `jumlah` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_software_jk`
+--
+
+CREATE TABLE IF NOT EXISTS `data_software_jk` (
+`id` int(20) NOT NULL,
+  `nama_software` varchar(25) NOT NULL,
+  `tanggal_software` date NOT NULL,
+  `status_software` varchar(25) NOT NULL,
+  `deskripsi_software` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_software_kc`
+--
+
+CREATE TABLE IF NOT EXISTS `data_software_kc` (
+`id` int(20) NOT NULL,
+  `nama_software` varchar(25) NOT NULL,
+  `tanggal_software` date NOT NULL,
+  `status_software` varchar(25) NOT NULL,
+  `deskripsi_software` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_software_mdi`
+--
+
+CREATE TABLE IF NOT EXISTS `data_software_mdi` (
+`id` int(20) NOT NULL,
+  `nama_software` varchar(25) NOT NULL,
+  `tanggal_software` varchar(25) NOT NULL,
+  `status_software` varchar(25) NOT NULL,
+  `deskripsi_software` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dosen`
+--
+
+CREATE TABLE IF NOT EXISTS `dosen` (
+`id` int(5) NOT NULL,
+  `nama_dosen` varchar(200) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dosen`
+--
+
+INSERT INTO `dosen` (`id`, `nama_dosen`, `username`, `password`) VALUES
+(1, 'Arif Amir', 'Arif1', '123456');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jadwal`
+--
+
+CREATE TABLE IF NOT EXISTS `jadwal` (
+`id` int(20) NOT NULL,
+  `hari` varchar(10) NOT NULL,
+  `mata_kuliah` varchar(50) NOT NULL,
+  `sks` varchar(1) NOT NULL,
+  `nama_dosen` varchar(60) NOT NULL,
+  `jam_mulai` varchar(20) NOT NULL,
+  `jam_selesai` varchar(20) NOT NULL,
+  `laboratorium` varchar(50) NOT NULL,
+  `asdos` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kurikulum`
+--
+
+CREATE TABLE IF NOT EXISTS `kurikulum` (
+`id` int(5) NOT NULL,
+  `tahun` varchar(15) NOT NULL,
+  `semester` varchar(50) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kurikulum`
+--
+
+INSERT INTO `kurikulum` (`id`, `tahun`, `semester`) VALUES
+(1, '2015/2016', 'Semester Genap');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `laporan_keluhan`
+--
+
+CREATE TABLE IF NOT EXISTS `laporan_keluhan` (
+`id` int(10) NOT NULL,
+  `nama_npm` varchar(255) NOT NULL,
+  `Tanggal` varchar(60) NOT NULL,
+  `lab` varchar(50) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `keluhan` varchar(200) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `laporan_keluhan`
+--
+
+INSERT INTO `laporan_keluhan` (`id`, `nama_npm`, `Tanggal`, `lab`, `status`, `keluhan`) VALUES
+(1, '1402011002 ACHMAD ABRAR', '17-06-2016', 'Lab Komputasional Cerdas', 'Tidak Puas', 'perawatannya di tingkatkan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mahasiswa`
+--
+
+CREATE TABLE IF NOT EXISTS `mahasiswa` (
+`id` int(20) NOT NULL,
+  `npm_nama` varchar(200) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=387 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`id`, `npm_nama`) VALUES
+(1, '1402011001  A. BATARI NURULNIZA'),
+(2, '1402011002  ACHMAD ABRAR'),
+(3, '1402011003  AHMAD HARIS'),
+(4, '1402011004  ANDI SETYA NUGRAHA'),
+(5, '1402011005  ARDI PRIMA PUTERA'),
+(6, '1402011006  AULLIA RACHMAN'),
+(7, '1402011007  BAYU FAJAR RAMADHAN'),
+(8, '1402011008  DIMAS HARYO ADHIATAMA'),
+(9, '1402011010  HERMAWAN AGUNG PRIYATMANTO'),
+(10, '1402011011  KEMAL PASHA'),
+(11, '1402011012  MOCH. YUDHA RAMADHAN'),
+(12, '1402011013  MONALISA APRILIA PAPUTUNGAN'),
+(13, '1402011014  NOFI CHAMSARIA'),
+(14, '1402011015  NOVIYANTI SAFITRI'),
+(15, '1402011016  NURAINI'),
+(16, '1402011017  OVIANA AROFFAH'),
+(17, '1402011018  RAHIM DOLI PATUANSAKTI S'),
+(18, '1402011019  RIZKI FITRIANTO'),
+(19, '1402011020  SHINTA SEPTDINA AKBAR'),
+(20, '1402011021  SUSILAWATI'),
+(21, '1402011022  UMI KALSUM'),
+(22, '1402011023  ANDIKA SEPTIANSYAH'),
+(23, '1402011024  FERINA GREEBE'),
+(24, '1402011026  SITI MARIA ULFAH'),
+(25, '1402011027  DZULIANTO SAPUTRA'),
+(26, '1402012001 ADHITYA PRATAMA'),
+(27, '1402012002 AFIAH RAHMAH'),
+(28, '1402012003 AGUB ALAMSYAH'),
+(29, '1402012004 AHMAD FAHRIZAL'),
+(30, '1402012005 AHMAD THOHIRIEN'),
+(31, '1402012006 ALWYN NASSER HENDARLIN'),
+(32, '1402012007 ANDARU GALUH INDRATNO'),
+(33, '1402012008 ANDI AULIA RAHMAN'),
+(34, '1402012009 APRILIANTI PUTRI'),
+(35, '1402012010 ARI SEPTIAN'),
+(36, '1402012011 ARSALAN RAUF'),
+(37, '1402012012 AWWALIYAH CHASANAH'),
+(38, '1402012013 BAMBANG AFRIAN PRAKOSO'),
+(39, '1402012014 BAMBANG RIDWAN'),
+(40, '1402012015 BRIAN HOGANTARA'),
+(41, '1402012016 DANY RIZKI SETIAWAN'),
+(42, '1402012017 DAUD IZZUDIN ROBANI'),
+(43, '1402012018 DENIS BAYU P'),
+(44, '1402012019 DENIS MUBARAK'),
+(45, '1402012020 DENNY PURNAMA RIANDI'),
+(46, '1402012021 DIAN AYU WULANDARI HARBYANTINNA'),
+(47, '1402012022 DIMAS NUR PANCA'),
+(48, '1402012023 DWI BAGUS SATRIA'),
+(49, '1402012024 DWI SULISTIYONO'),
+(50, '1402012025 EMI FARIDA'),
+(51, '1402012026 EMIR APRIAN AMBIAR'),
+(52, '1402012027 ENGGAL PRIYO SAPUTRO'),
+(53, '1402012028 EVI NURFADILAH'),
+(54, '1402012029 FARADYNA RAHMA HENDRI'),
+(55, '1402012030 FAUZI ARDI'),
+(56, '1402012031 FAUZI MAKARIM'),
+(57, '1402012032 FENNY DESRI HARTANTI'),
+(58, '1402012033 FERA KHAIRINA NOER'),
+(59, '1402012034 G PRAVIN KUMAR'),
+(60, '1402012035 GIFARI ALFAN REZA'),
+(61, '1402012036 GITA RATNA SARI'),
+(62, '1402012037 GUMILAR AKBAR BILLY IBRAHIM'),
+(63, '1402012038 HASBI ADAM'),
+(64, '1402012039 HENDY PRATAMA'),
+(65, '1402012040 HERU ANWAR SYARIF'),
+(66, '1402012041 HERU SETIADI'),
+(67, '1402012042 IBNU DWI CAHYO'),
+(68, '1402012043 IKRIMA HANANA ULFA'),
+(69, '1402012044 INTAN NURJANAH'),
+(70, '1402012045 INTAN SARI WANCI'),
+(71, '1402012046 IRWAN NAWI ZAINARO'),
+(72, '1402012047 JOKO SETIAWAN'),
+(73, '1402012048 KRISWANTO'),
+(74, '1402012049 LIZA SILVIANA'),
+(75, '1402012050 M.KHAIRUL VIKRI'),
+(76, '1402012051 M.RINALDY ABDILLAH'),
+(77, '1402012052 MAULANA SHIDDIQ'),
+(78, '1402012053 MOHAMMAD AFANDI'),
+(79, '1402012054 MOHAMMAD FAHD AYUB'),
+(80, '1402012055 MUCHAMMAD ALFIANSYAH'),
+(81, '1402012056 MUHAMMAD AL-ZIQRI'),
+(82, '1402012057 MUHAMMAD ASQOLANI'),
+(83, '1402012058 MUHAMMAD RINALDY'),
+(84, '1402012059 NABILAH MUTIA FARHANAH'),
+(85, '1402012060 NASRULLAH'),
+(86, '1402012061 NINDI MAULIA RAHMI'),
+(87, '1402012062 NOVI LAILIYAH'),
+(88, '1402012063 NUR ILHAM PRIBADI'),
+(89, '1402012064 NURROCHMAN WICAKSONO'),
+(90, '1402012065 NURUL IMAN FACHROJI'),
+(91, '1402012066 PENY AMALIA'),
+(92, '1402012067 PINTO NUGROHO CIPTO'),
+(93, '1402012068 PRABOWO NUGROHO BUDI SEJATI'),
+(94, '1402012069 PUTRA APRIANTO'),
+(95, '1402012070 QORY ANDRIANNI'),
+(96, '1402012071 RAHDIANOV FIKRI SUSANTO'),
+(97, '1402012072 RATNA SEPTYANI'),
+(98, '1402012073 RENDI SUHARTO'),
+(99, '1402012074 RIANKA KHAIRINA EKAPUTRI'),
+(100, '1402012075 RINALDY ARNANDA TRIANDRY'),
+(101, '1402012076 RISNNA ATIKA'),
+(102, '1402012077 RIZA UMAMI'),
+(103, '1402012078 RIZKY SAPUTRA'),
+(104, '1402012079 SILVA RAHMA FEBRIANDINI'),
+(105, '1402012080 SITI ROHMAH'),
+(106, '1402012081 SYAIFUL RAHMAN'),
+(107, '1402012082 TAUFIK HIDAYAT RAHARJO'),
+(108, '1402012083 TB MUH FAJRI NURSALAM'),
+(109, '1402012084 TEGUH SATRIO NUGROHO'),
+(110, '1402012085 WAHYUNI JUHAIRIYAH'),
+(111, '1402012086 YUNITA'),
+(112, '1402012087 YUSRAN ADE PRATAMA'),
+(113, '1402012088 TRY ANUGRAH ROMADHAN'),
+(114, '1402012089 OCKY ADITIA SAPUTRA'),
+(115, '1402012090 RIO MEILANO'),
+(116, '1402012091 SURYA GEMILANG SAPUTRA'),
+(117, '1402012092 RAJA HALALA LAUHAFIZA AL-ARAF'),
+(118, '1402012093 ADE ANITIANA'),
+(119, '1402012094 AFNAN AHMAD THALIB'),
+(120, '1402012095 AKHMAD IQBAL WICAKSONO'),
+(121, '1402012096 HERY EKA RIANTO'),
+(122, '1402012097 LUTFIANI'),
+(123, '1402012098 MUHAMMAD FAHMY BAIHAQY'),
+(124, '1402012099 NABILAH'),
+(125, '1402012100 NABYLLA AZAHRA'),
+(126, '1402012101 NATASHA MANSOOR'),
+(127, '1402012102 NYIMAS KARINA'),
+(128, '1402012103 ALVAN BAARI'),
+(129, '1402013001  ABDUL MALIK NAUFAL'),
+(130, '1402013002  ABDULLAH AHMAD FAUZI'),
+(131, '1402013003  ACHMAD ADITYA'),
+(132, '1402013004  ACHMAD VICKY ZULFIKAR'),
+(133, '1402013005  ADENDA GALIH KACIDA'),
+(134, '1402013006  ADHIKA TRISNA DWI PUTRA'),
+(135, '1402013007  ADNAN FADHILAH'),
+(136, '1402013008  AHMAD MAJID MUHAMMAD'),
+(137, '1402013009  AHMAD MUHAJIR'),
+(138, '1402013010  AHMAD RUSDI'),
+(139, '1402013011  ALFIEZHAR LANGARI'),
+(140, '1402013012  ALFITRA NURUL AZMI'),
+(141, '1402013013  ANDI RASUNA DARSONO'),
+(142, '1402013014  ARIFUDDIN SANJAYA'),
+(143, '1402013015  AYU DWI LESTARI'),
+(144, '1402013016  BAYU DWI SAHPUTRA'),
+(145, '1402013017  CAKRA KARIM NARENDRA'),
+(146, '1402013018  CANDRA ABDURRAHMAN'),
+(147, '1402013019  DANAR PRADITYA KARDIANTO'),
+(148, '1402013020  DANUDORO IAN WISESO'),
+(149, '1402013021  DEA SAVITRI'),
+(150, '1402013022  DESI ESTUTI'),
+(151, '1402013023  DESI SUSILAWATI'),
+(152, '1402013024  DWI NURCAHYO'),
+(153, '1402013025  ERGIE FERGIAN'),
+(154, '1402013026  ERLIE DAMAYANTI'),
+(155, '1402013027  FAHRUDIN ARIF'),
+(156, '1402013028  FAUZEN'),
+(157, '1402013029  FEBBY KUSWOYO'),
+(158, '1402013030  FERNANDO ASTRADA PASARIBU'),
+(159, '1402013031  FIKRI FIRMANSYAH'),
+(160, '1402013032  FITRIA WALYANI ZAIN'),
+(161, '1402013033  GATRINE OKTAVIANI SHAHNAZ PRATAMA PUTRI SOEBROTO'),
+(162, '1402013034  GILANG ADZANSYAH ADITRA'),
+(163, '1402013035  GITTA CINTIA'),
+(164, '1402013036  GUSTIAN MAULANA'),
+(165, '1402013037  HAMNAH'),
+(166, '1402013038  HANDYKA EZA PRATHAMA'),
+(167, '1402013039  HANSEN DUSENOV'),
+(168, '1402013040  HELMY DESIAWAM SAPUTRA'),
+(169, '1402013041  ILHAM AGUNG FAJARIANTO'),
+(170, '1402013042  IMAMI ARIFIN'),
+(171, '1402013043  INAS LATHIFAH'),
+(172, '1402013044  KURNIA ANDHINI'),
+(173, '1402013045  LUTFI DWI TRISTIANTO'),
+(174, '1402013046  LUTHFI LAZUARDI NOOR'),
+(175, '1402013047  M. FAHAD ABDUL AZIS'),
+(176, '1402013048  MALIK SYAHBADI'),
+(177, '1402013049  MAULID SUHARTO'),
+(178, '1402013050  MILCA RHIAMEKELSIMABUA'),
+(179, '1402013051  MOCH AMIN SOFYAN'),
+(180, '1402013052  MOCHAMAD FERDY OKTAVIANSYAH'),
+(181, '1402013053  MUHAMMAD DHAFI NUGRAHA IKHWAN'),
+(182, '1402013054  MUHAMMAD EKKY AJI PRATAMA'),
+(183, '1402013055  MUHAMMAD FAJAR PRAYITNO'),
+(184, '1402013056  MUHAMMAD FARIZ FARHAN'),
+(185, '1402013057  MUHAMMAD IMAN SENDANU'),
+(186, '1402013058  MUHAMMAD JAENUDDIN'),
+(187, '1402013059  MUHAMMAD KHADAFI AL- AF GHANI'),
+(188, '1402013060  MUHAMMAD RIDHALLAH'),
+(189, '1402013061  MUHAMMAD YUSRAN'),
+(190, '1402013062  NOVI WIDIA NINGSIH'),
+(191, '1402013063  NUR LULU AFRIKANI'),
+(192, '1402013064  NURULLAH'),
+(193, '1402013065  PETER NICO SETIAWAN'),
+(194, '1402013066  PUTRIMA DESNYAMBAR'),
+(195, '1402013067  RATRI ADRYANA'),
+(196, '1402013068  RESRI AMBARIZKI YUNIAZ'),
+(197, '1402013069  REVINA NURJANAH'),
+(198, '1402013070  RHEZA FIRMANSYAH'),
+(199, '1402013071  RIFKI SANI ASHAL'),
+(200, '1402013072  RIVALGUS.SETIAWAN'),
+(201, '1402013073  RIZKY DWI SAPUTRA'),
+(202, '1402013074  RIZKY RAMADHAN'),
+(203, '1402013075  ROSI MAHARANI'),
+(204, '1402013076  SEPTI INDRIANI MANTHASARI'),
+(205, '1402013077  SETYARA DJAYA ODE'),
+(206, '1402013078  SIROJUDDIN HAMADA'),
+(207, '1402013079  SITI CHAIRUNNISA'),
+(208, '1402013080  SYARIF HUSAIN ALWI'),
+(209, '1402013081  SYURAYA KURROTAL AINI'),
+(210, '1402013082  ULUL AZMI AYUNING RINANTI'),
+(211, '1402013083  VALLYANDRA ARSASYA HALIM'),
+(212, '1402013084  VERA LICHA'),
+(213, '1402013085  VULA MILANO'),
+(214, '1402013086  WENDY KURNIAWAN'),
+(215, '1402013087  YAHYA AYYASY'),
+(216, '1402013088  YUNISA INDAH CENTYA DEWI'),
+(217, '1402013089  ZAHIR FAHMI'),
+(218, '1402013090  ZILFIRA ANNA DHARAH'),
+(219, '1402013091  ANGGA PRADIPTA'),
+(220, '1402013092  PAMUNGKAS HARLI ANGGASANTO'),
+(221, '1402013093  RICHO ARIYANTO'),
+(222, '1402013094  MUCHAMMAD LANDI ZAELANI'),
+(223, '1402013095  MUHAMAD YASIR RIZKY'),
+(224, '1402013096  WINDA RAMADHANI'),
+(225, '1402013097  TOPAN ALFARISI'),
+(226, '1402013098  GALIH UTOMO'),
+(227, '1402013099  ZICO ARMANDO MUHAMMAD'),
+(228, '1402013100  DELLA PIANA'),
+(229, '1402013101  BALQIS CAHYANING DWI SEDYOTAMI'),
+(230, '1402013102  RIZKY SYAHPUTRA'),
+(231, '1402013103  AHMAD AGUNG PARDHANA'),
+(232, '1402013104  ANDI MUHAMMAD SYAMSU RIZKY'),
+(233, '1402013105  VERDIANTA PRATAMA'),
+(234, '1402013106  ABBAS'),
+(235, '1402013107  MUHAMMAD DJODI SETIAWAN'),
+(236, '1402013108  AUDREY IRMAWATI'),
+(237, '1402013109  DINDA DEVYANTI PUTERI'),
+(238, '1402013110  SONIA FATIMA'),
+(239, '1402013111  DWI RAHMAYANTI'),
+(240, '1402013112  RINA WIDYANINGSIH'),
+(241, '1402013113  ELNA WIDIYA LESTARI'),
+(242, '1402013114  CANGGIH ANGGA WIJAYA'),
+(243, '1402013115  MUHAMMAD IBNU RAZAK'),
+(244, '1402013116  BENNY APRILIANDI'),
+(245, '1402014001 A. BATARI AHMAD'),
+(246, '1402014002 ABDUL AZIZ JUMAH LUMAKSO'),
+(247, '1402014003 ACHMAD RIFAI'),
+(248, '1402014004 ADI WIS HENDRA'),
+(249, '1402014005 ADITYA EFRIAN'),
+(250, '1402014006 AGUNG BUDI LAKSONO'),
+(251, '1402014007 AGUS SURYADI'),
+(252, '1402014008 AHMAD AGUNG PRADHANA'),
+(253, '1402014009 AHMAD ALIF GHUFRON SYAIFUDDIN'),
+(254, '1402014010 AHMAD MUKLIS'),
+(255, '1402014011 AHMAD TANTO'),
+(256, '1402014012 AHMAD ZAKI MAKARIM'),
+(257, '1402014013 AKBAR SANDI'),
+(258, '1402014014 ALFIAN AGUM PUTRA'),
+(259, '1402014015 ALFIYAH NURULHASANAH'),
+(260, '1402014016 ANDHIKA EKKA PUTRA'),
+(261, '1402014017 ANDICHA GUNDALA RACHMATULLOH PUTRA'),
+(262, '1402014018 ANDRE MAULIDIANSYAH'),
+(263, '1402014019 ANDRIAN NURMANSYAH'),
+(264, '1402014020 ANGGI SEPTIANI'),
+(265, '1402014021 ANIS CHAERUNISA'),
+(266, '1402014022 ARIE SURACHMAN'),
+(267, '1402014023 ARLITA PUTRI'),
+(268, '1402014024 BAYU ALAMSYAH'),
+(269, '1402014025 BAYU LESMANA'),
+(270, '1402014026 BAYU SEGHARA MAHAPUTRA'),
+(271, '1402014027 CINDY NADHIRAH AL-HASBY'),
+(272, '1402014028 CITRA JULYTA'),
+(273, '1402014029 DEBITA FEBRIANA'),
+(274, '1402014030 DENNIS YOGA WISMAYOGA'),
+(275, '1402014031 DEWI FARAH EVI NOVERINA'),
+(276, '1402014032 DHIANIKA CAHYATI'),
+(277, '1402014033 DIAN PUTRI NITAMI'),
+(278, '1402014034 DIGA AMALLIA KRISNA UTAMI'),
+(279, '1402014035 DIMAS IKHWANUL QIROM'),
+(280, '1402014036 DWIKI KURNIA SANDI'),
+(281, '1402014037 DWIKY REZA NURSAHBANI'),
+(282, '1402014038 EKO PRASETYO'),
+(283, '1402014039 ELMA YUNITA ULFATUL JANNAH'),
+(284, '1402014040 ERU ADHA DENY FIRMANTO'),
+(285, '1402014041 EVI DAMAYANTI FIRDAUS'),
+(286, '1402014042 FAHLIAN'),
+(287, '1402014043 FAJRIYAN MUHAMMAD'),
+(288, '1402014044 FANDI MUHAMMAD'),
+(289, '1402014045 FARHAN MUTTAQIN'),
+(290, '1402014046 FAUZAN RIFA-I'),
+(291, '1402014047 FEBRI INDRA PRADHANA'),
+(292, '1402014048 FUAD RIYADI'),
+(293, '1402014049 GILANG SAMUDRA'),
+(294, '1402014050 HADI WIRA PRASTAMA'),
+(295, '1402014051 HENDRI ARYO.M'),
+(296, '1402014052 HUSNI ADI NUGROHO'),
+(297, '1402014053 INDRIYANI'),
+(298, '1402014054 IRFAN ARDIANSYAH'),
+(299, '1402014055 JAFAR YUSUF ASHFAHANI'),
+(300, '1402014056 JOHAR MUHAMMAD ARIFIN'),
+(301, '1402014057 JOKO SUPRIYONO'),
+(302, '1402014058 KARTINI SUSILO FITRI'),
+(303, '1402014059 KUTSIYAH'),
+(304, '1402014060 LUTHFI ALFIANTO'),
+(305, '1402014061 MAYA NIRMALA'),
+(306, '1402014062 MOECHGI KOESMANTORO'),
+(307, '1402014063 MUH ANGGA DEWAN PRATAMA'),
+(308, '1402014064 MUH KHAIRUL VIKRI'),
+(309, '1402014065 MUHAMAD AFIF'),
+(310, '1402014066 MUHAMAD REFDINAL PRAJAWISESA'),
+(311, '1402014067 MUHAMAD REZA SHAHENSHA'),
+(312, '1402014068 MUHAMMAD'),
+(313, '1402014069 MUHAMMAD ABDUL AZIZ'),
+(314, '1402014070 MUHAMMAD FADHLI SHALDAN'),
+(315, '1402014071 MUHAMMAD FAJAR'),
+(316, '1402014072 MUHAMMAD FAJAR FIRMANSYAH'),
+(317, '1402014073 MUHAMMAD FANDI ALBUGIS'),
+(318, '1402014074 MUHAMMAD FARIS'),
+(319, '1402014075 MUHAMMAD HABIB RAMDHANI'),
+(320, '1402014076 MUHAMMAD ILHAM SAPUTRA'),
+(321, '1402014077 MUHAMMAD NANDO PRATAMA'),
+(322, '1402014078 MUHAMMAD RAKA AGASVA'),
+(323, '1402014079 MUHAMMAD SYAUQI FARHAN'),
+(324, '1402014080 MUKHLAS WINARNO'),
+(325, '1402014081 MUTIA KENTUAH NIEATE'),
+(326, '1402014082 MUTIARA WULANDARI'),
+(327, '1402014083 NADYA AFIFAHTUL KHOIR'),
+(328, '1402014084 NAURAH NAZHIFAH'),
+(329, '1402014085 NIKO HARIPRATAMA'),
+(330, '1402014086 NUR FITRIYAH'),
+(331, '1402014087 NURAISAH'),
+(332, '1402014088 NURALIM'),
+(333, '1402014089 ONGGO MULYO SPUTRO'),
+(334, '1402014090 PANJI DEWANTARA'),
+(335, '1402014091 PRIMA PRADITYA'),
+(336, '1402014092 PRITA KURNIA JAYA'),
+(337, '1402014093 R FADHIL SYAHBANDI'),
+(338, '1402014094 R. ANDITO RIZKY P.'),
+(339, '1402014095 RACHMADHANI AJENG NURMUFTI'),
+(340, '1402014096 RACHMAN MUIZZU'),
+(341, '1402014098 RANTI PURWATI'),
+(342, '1402014099 REINALDO RICKY KOESOMA'),
+(343, '1402014100 REZA ARIEF WIYARTA'),
+(344, '1402014101 RIDHO YANEVAN PRATAMA'),
+(345, '1402014102 RIZKA NUR FAZRI'),
+(346, '1402014103 RIZKI MUHAMAD NAWAWI'),
+(347, '1402014104 RIZKY JULIYANTO'),
+(348, '1402014105 RIZQY FAJAR ABDULLAH'),
+(349, '1402014106 ROFIQOH ROMADHONA PUTRI'),
+(350, '1402014108 RUNTARI PUTRI'),
+(351, '1402014109 RYAN MAYER NUGRAHA'),
+(352, '1402014110 RYANDINI FADHILAH'),
+(353, '1402014111 SAGITA MUKTI PRADHANA'),
+(354, '1402014112 SAHRI RAHMA'),
+(355, '1402014113 SANDY ADIDTYA PERMANA'),
+(356, '1402014114 SARAH SYAHWENNI UTARI'),
+(357, '1402014115 SEPTI ANGRAENI'),
+(358, '1402014116 SHAFA AZZAHRA'),
+(359, '1402014117 SITI HERYANA'),
+(360, '1402014118 SITI KHALIFAH'),
+(361, '1402014119 SITI TRISUCI PUTRI'),
+(362, '1402014121 SYAR WIDIAN SYAH'),
+(363, '1402014122 TAUFIK RISKYANTO'),
+(364, '1402014123 TONY AGUSTRIANTO'),
+(365, '1402014124 VICTOR TANNU WIJAYA'),
+(366, '1402014125 VIRLIANSYAH'),
+(367, '1402014126 VITA DIAH ANGGRAENY'),
+(368, '1402014127 WIWIET SRI MULYANINGRUM'),
+(369, '1402014128 YOGI PRIMA RIZKI'),
+(370, '1402014129 YULI YANA DEWI'),
+(371, '1402014130 ZAKIAH HUSNUL AGHNIYA'),
+(372, '1402014131 ANDIKA GITOSA PUTRA'),
+(373, '1402014132 ARIO BAGUS SADEWO'),
+(374, '1402014133 ASMA AMANINA'),
+(375, '1402014134 ASTI SARASWATI'),
+(376, '1402014135 EKA TASYA DEYASTUTI'),
+(377, '1402014136 GANI AYU MUMPUNI'),
+(378, '1402014137 GHOZY FAIZULHAQ'),
+(379, '1402014138 KAMALUDIN'),
+(380, '1402014139 MURSID FAHRUL'),
+(381, '1402014140 NABILLA ULFA NUR NOVIANTY'),
+(382, '1402014141 NANDINI PUTRI DEWITA'),
+(383, '1402014142 RAYNAL HUSNU DZON'),
+(384, '1402014143 ROHA DI OLOAN TAMPUBOLON'),
+(385, '1402014144 YESSI IDA FITRIYANI'),
+(386, '1402014145 MUHAMMAD RIDWAN NURIZAL');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `statistik_hari`
+--
+
+CREATE TABLE IF NOT EXISTS `statistik_hari` (
+`id` int(20) NOT NULL,
+  `nama_hari` varchar(50) NOT NULL,
+  `total` int(20) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `statistik_hari`
+--
+
+INSERT INTO `statistik_hari` (`id`, `nama_hari`, `total`) VALUES
+(1, 'Senin', 2),
+(2, 'Selasa', 0),
+(3, 'Rabu', 0),
+(4, 'Kamis', 1),
+(5, 'Jumat', 0),
+(6, 'Sabtu', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `statistik_kepuasan`
+--
+
+CREATE TABLE IF NOT EXISTS `statistik_kepuasan` (
+`id` int(20) NOT NULL,
+  `status_kepuasan` varchar(50) NOT NULL,
+  `total` int(20) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `statistik_kepuasan`
+--
+
+INSERT INTO `statistik_kepuasan` (`id`, `status_kepuasan`, `total`) VALUES
+(1, 'Puas', 0),
+(2, 'Tidak Puas', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tahun_arsip`
+--
+
+CREATE TABLE IF NOT EXISTS `tahun_arsip` (
+`id` int(10) NOT NULL,
+  `tahun` varchar(5) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tahun_arsip`
+--
+
+INSERT INTO `tahun_arsip` (`id`, `tahun`) VALUES
+(1, '2015'),
+(2, '2016');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_arsip`
+--
+ALTER TABLE `data_arsip`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_dosen`
+--
+ALTER TABLE `data_dosen`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_inventaris_jk`
+--
+ALTER TABLE `data_inventaris_jk`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_inventaris_jk_total`
+--
+ALTER TABLE `data_inventaris_jk_total`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_inventaris_kc`
+--
+ALTER TABLE `data_inventaris_kc`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_inventaris_kc_total`
+--
+ALTER TABLE `data_inventaris_kc_total`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_inventaris_mdi`
+--
+ALTER TABLE `data_inventaris_mdi`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_inventaris_mdi_total`
+--
+ALTER TABLE `data_inventaris_mdi_total`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_software_jk`
+--
+ALTER TABLE `data_software_jk`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_software_kc`
+--
+ALTER TABLE `data_software_kc`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_software_mdi`
+--
+ALTER TABLE `data_software_mdi`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dosen`
+--
+ALTER TABLE `dosen`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jadwal`
+--
+ALTER TABLE `jadwal`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kurikulum`
+--
+ALTER TABLE `kurikulum`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `laporan_keluhan`
+--
+ALTER TABLE `laporan_keluhan`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `statistik_hari`
+--
+ALTER TABLE `statistik_hari`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `statistik_kepuasan`
+--
+ALTER TABLE `statistik_kepuasan`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tahun_arsip`
+--
+ALTER TABLE `tahun_arsip`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `data_arsip`
+--
+ALTER TABLE `data_arsip`
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `data_dosen`
+--
+ALTER TABLE `data_dosen`
+MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `data_inventaris_jk`
+--
+ALTER TABLE `data_inventaris_jk`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `data_inventaris_jk_total`
+--
+ALTER TABLE `data_inventaris_jk_total`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `data_inventaris_kc`
+--
+ALTER TABLE `data_inventaris_kc`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `data_inventaris_kc_total`
+--
+ALTER TABLE `data_inventaris_kc_total`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `data_inventaris_mdi`
+--
+ALTER TABLE `data_inventaris_mdi`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `data_inventaris_mdi_total`
+--
+ALTER TABLE `data_inventaris_mdi_total`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `data_software_jk`
+--
+ALTER TABLE `data_software_jk`
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `data_software_kc`
+--
+ALTER TABLE `data_software_kc`
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `data_software_mdi`
+--
+ALTER TABLE `data_software_mdi`
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `dosen`
+--
+ALTER TABLE `dosen`
+MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `jadwal`
+--
+ALTER TABLE `jadwal`
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `kurikulum`
+--
+ALTER TABLE `kurikulum`
+MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `laporan_keluhan`
+--
+ALTER TABLE `laporan_keluhan`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=387;
+--
+-- AUTO_INCREMENT for table `statistik_hari`
+--
+ALTER TABLE `statistik_hari`
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `statistik_kepuasan`
+--
+ALTER TABLE `statistik_kepuasan`
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tahun_arsip`
+--
+ALTER TABLE `tahun_arsip`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,50 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400);
+@import url(http://fonts.googleapis.com/css?family=Slabo:400);
+body {
+  background-image:url(../../img/universitas-yarsi%202.jpg);
+  background-size: 100% 110%;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+	margin-top:-20px;
+	margin-left:10px;
+    padding: 30px;
+	position:fixed;
+}
+
+.form-login {
+	font: normal 14px 'Roboto',arial,sans-serif;
+    background-color: #EDEDED;
+	width:300px;
+	margin-left:10px;
+    padding-top:10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+h1{
+ padding-top:9%;
+ font: normal 14px 'Roboto',arial,sans-serif;
+ 
+}
+
+h4 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.wrapper {
+    text-align: center;
+}
